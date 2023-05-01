@@ -12,19 +12,25 @@ class Header extends Component {
     handleClickTelephone = ()=>{
         console.log('this is:', this.telephone);
         let response=prompt("telephone:",this.telephone);
-        if(response===""){return}
-        this.telephone=response;
-        let element=document.getElementById('telephone');
-        element.innerText=this.telephone;
+        if((response==="")||response===null){
+            console.log("here")}
+        else{
+            this.telephone=response;
+            let element=document.getElementById('telephone');
+            element.innerText=this.telephone;
+        }    
     };
     handleClickContact = ()=>{
         console.log('the email is:', this.contact);
         let response=prompt("Email:",this.contact)
-        if(response===""){return;}
-        
-        let element=document.getElementById('contact');
-        this.contact=response;
-        element.innerText=this.contact;
+        if((response==="")||response===null){
+            console.log("here")
+            return;}
+        else{
+            let element=document.getElementById('contact');
+            this.contact=response;
+            element.innerText=this.contact;
+        }
     };
 
     render() {
