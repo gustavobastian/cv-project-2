@@ -6,7 +6,7 @@
     height: 25px;
     justify-content: space-around;
     align-items: center;
-    background-color: #6f7a0c;
+    background: rgb(201, 200, 200) ;
   }
 .telephone{
     display:flex;

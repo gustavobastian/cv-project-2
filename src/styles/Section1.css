@@ -5,7 +5,7 @@
     width:100%;
     justify-content: space-around;
     align-items: center;
-    background: #949b59;
+    background: rgb(233, 232, 232) ;
   }
   
  img{
@@ -17,7 +17,7 @@
  } 
 .TitleSection{
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
   width:100%;
   padding-left:25%;
   padding-right:25%;
@@ -25,19 +25,22 @@
   justify-content: center;
 }  
   
-.labelSection1 {
-    background-color: #282c34;
-    height: 100px;
+.labelSection1 {        
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);    
+    /*font-size: 20px;*/
   }
 .dataSection1{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+
   padding-left:5px;
+  /*font-size: 18px;*/
+  font-size: calc(8px + 2vmin);    
 }
 
   

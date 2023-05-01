@@ -4,20 +4,41 @@ import '../styles/Header.css';
 class Header extends Component {
     constructor() {
         super()
+        this.telephone="33-252156421";
+        this.contact="Pter@ftam.com.ar";
     }
 
     
+    handleClickTelephone = ()=>{
+        console.log('this is:', this.telephone);
+        let response=prompt("telephone:",this.telephone);
+        if(response===""){return}
+        this.telephone=response;
+        let element=document.getElementById('telephone');
+        element.innerText=this.telephone;
+    };
+    handleClickContact = ()=>{
+        console.log('the email is:', this.contact);
+        let response=prompt("Email:",this.contact)
+        if(response===""){return;}
+        
+        let element=document.getElementById('contact');
+        this.contact=response;
+        element.innerText=this.contact;
+    };
 
     render() {
         return (
             <div className="Header">
             <div className="telephone">
                 <div className="LabelHeader">Tel:</div>
-                <div className="dataHeader"> 33-252156421</div>
+                <div className="dataHeader"><div id="telephone" onClick={this.handleClickTelephone}> {this.telephone}</div>
+                </div>
             </div>   
             <div className="address">
                 <div className="LabelHeader">Contact: </div>
-                <a href="mailto:Pter@ftam.com.ar" className="dataHeader">  Pter@ftam.com.ar</a>
+                <div className="dataHeader"> <div id="contact" onClick={this.handleClickContact}> {this.contact}</div>
+                </div>
             </div>
             </div>
         )

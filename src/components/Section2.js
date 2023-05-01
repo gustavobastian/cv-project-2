@@ -11,8 +11,9 @@ class Section2 extends Component {
     render() {
         return (
             <div className="Section2">
+            <div className="educationLine">Education</div>
             <div className="Label">Hola</div>
-            <div className="data"> World2!</div>
+            <div className="Data"> World2!</div>
             </div>
         )
     }
