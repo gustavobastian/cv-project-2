@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-//import '../styles/Header.css';
+import '../styles/Section1.css';
+import face from '../assets/face.jpeg'
 
 class Section1 extends Component {
     constructor() {
@@ -11,8 +12,11 @@ class Section1 extends Component {
     render() {
         return (
             <div className="Section1">
-            <div className="Label">Hola</div>
-            <div className="data"> World!</div>
+            <img src={face}   alt="image" ></img>
+            <div className="TitleSection">
+                <div className="LabelSection1">Peter Ivanovic</div>
+                <div className="dataSection1"> Phd </div>
+            </div>
             </div>
         )
     }

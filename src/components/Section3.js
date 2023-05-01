@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-//import '../styles/Header.css';
+import '../styles/Section3.css';
 
 class Section3 extends Component {
     constructor() {
@@ -11,8 +11,8 @@ class Section3 extends Component {
     render() {
         return (
             <div className="Section3">
-            <div className="Label">Hola</div>
-            <div className="data"> World3!</div>
+            <div className="LabelSection3">Hola</div>
+            <div className="dataSection3"> World3!</div>
             </div>
         )
     }

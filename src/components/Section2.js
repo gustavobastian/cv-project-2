@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-//import '../styles/Header.css';
+import '../styles/Section2.css';
 
 class Section2 extends Component {
     constructor() {
