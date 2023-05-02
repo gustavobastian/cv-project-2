@@ -11,8 +11,10 @@ class Header extends Component {
         telephone:"33-252156421",
         contact:"Pter@ftam.com.ar"
     };
+    this.handleClickContact=this.handleClickContact.bind(this);   
+    this.handleClickTelephone=this.handleClickTelephone.bind(this);
     }
-    handleClickTelephone = ()=>{
+    handleClickTelephone(){
         console.log('this is:', this.telephone);
         let response=prompt("telephone:",this.telephone);
         if((response==="")||response===null){
@@ -21,9 +23,10 @@ class Header extends Component {
             this.setState({
                 telephone:response,
             });
-        }    
+        } 
+       
     };
-    handleClickContact = ()=>{
+    handleClickContact (){
         console.log('the email is:', this.contact);
         let response=prompt("Email:",this.contact)
         if((response==="")||response===null){
