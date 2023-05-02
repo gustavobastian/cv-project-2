@@ -3,11 +3,9 @@ import '../styles/Section3.css';
 import ExperienceElement from './experienceElement';
 
 class Section3 extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)        
     }
-
-    
 
     render() {
         return (
@@ -15,10 +13,12 @@ class Section3 extends Component {
 
             <div className="experienceLine">Experience:</div>
             <hr></hr>
-            
             <ul >
-            <li><ExperienceElement companyName="MyComp" titleName="Game programmer" dateEntry="2007" dateEnd="2008" Note="Game Minippoo development" /></li>
-            <li><ExperienceElement companyName="MyComp2" titleName="Game programmer" dateEntry="2007" dateEnd="2008" Note="Game Minippoo development" /></li>
+            {this.props.experiences.map((experience) => {
+                return <li key={experience.title}>
+                    <ExperienceElement companyName={experience.companyName} titleName={experience.titleName} dateEntry={experience.dateEntry} dateEnd={experience.dateEnd} Note={experience.note}/>
+                    </li>;
+            })}
             </ul>
             </div>
             

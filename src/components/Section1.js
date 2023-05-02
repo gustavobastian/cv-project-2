@@ -3,18 +3,21 @@ import '../styles/Section1.css';
 import face from '../assets/face.jpeg'
 
 class Section1 extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         
 
         this.state={
             name:"Peter Ivanovic",
             title:"Phd. AstroPhysics",
         };
+
+        this.handleClickName=this.handleClickName.bind(this);
+        this.handleClickTitle=this.handleClickTitle.bind(this);
     }
 
     
-    handleClickName = ()=>{
+    handleClickName(){
         console.log('this is:', this.name);
         let response=prompt("name:",this.name);
         if((response==="")||response===null){
@@ -26,7 +29,7 @@ class Section1 extends Component {
             })        
         }
     };
-    handleClickTitle = ()=>{
+    handleClickTitle(){
         console.log('the ocuppation is:', this.title);
         let response=prompt("title:",this.title)
         if((response==="")||response===null){

@@ -15,8 +15,8 @@ class Header extends Component {
     this.handleClickTelephone=this.handleClickTelephone.bind(this);
     }
     handleClickTelephone(){
-        console.log('this is:', this.telephone);
-        let response=prompt("telephone:",this.telephone);
+        console.log('this is:', this.state.telephone);
+        let response=prompt("telephone:",this.state.telephone);
         if((response==="")||response===null){
             console.log("here")}
         else{
@@ -27,10 +27,9 @@ class Header extends Component {
        
     };
     handleClickContact (){
-        console.log('the email is:', this.contact);
-        let response=prompt("Email:",this.contact)
-        if((response==="")||response===null){
-            console.log("here")
+        console.log('the email is:', this.state.contact);
+        let response=prompt("Email:",this.state.contact)
+        if((response==="")||response===null){            
             return;}
         else{            
             this.setState({
@@ -53,6 +52,7 @@ class Header extends Component {
                 <div className="dataHeader"> <div id="contact" onClick={this.handleClickContact}> {this.state.contact}</div>
                 </div>
             </div>
+            
             </div>
         )
     }

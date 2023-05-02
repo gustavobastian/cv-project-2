@@ -1,41 +1,51 @@
 .App {
   text-align: center;
   display:flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+form{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.myForm{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+label{
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+input{
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+#education{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-left: 10%;
+  margin-right:  10%;
+  width: 80%;
 }
-
-.App-link {
-  color: #61dafb;
+#experience{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10%;
+  margin-right:  10%;
+  width: 80%;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button{
+  background: linear-gradient(rgb(163, 163, 228),rgb(173, 171, 171),rgb(163, 163, 228));
+  margin: 10px;
 }
