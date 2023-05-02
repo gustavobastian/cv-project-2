@@ -5,30 +5,38 @@ import face from '../assets/face.jpeg'
 class Section1 extends Component {
     constructor() {
         super()
-        this.name="Peter Ivanovic";
-        this.title="Phd. AstroPhysics";
+        
+
+        this.state={
+            name:"Peter Ivanovic",
+            title:"Phd. AstroPhysics",
+        };
     }
 
     
     handleClickName = ()=>{
         console.log('this is:', this.name);
         let response=prompt("name:",this.name);
-        if(response===""){
+        if((response==="")||response===null){
             return;
         }
-        this.name=response;
-        let element=document.getElementById('namePerson');
-        element.innerText=this.name;
+        else{
+            this.setState({
+                name:response,
+            })        
+        }
     };
     handleClickTitle = ()=>{
         console.log('the ocuppation is:', this.title);
         let response=prompt("title:",this.title)
-        if(response===""){
+        if((response==="")||response===null){
             return;
         }
-        this.title=response;
-        let element=document.getElementById('titlePerson');
-        element.innerText=this.title;
+        else{
+            this.setState({
+                title:response,
+            });
+        }
     };
 
     render() {
@@ -37,11 +45,11 @@ class Section1 extends Component {
             <img src={face}   alt="Person Pic" ></img>
             <div className="TitleSection">
                 <div className="labelSection1">
-                    <div id="namePerson" onClick={this.handleClickName}>{this.name}</div>                
+                    <div id="namePerson" onClick={this.handleClickName}>{this.state.name}</div>                
                 </div>
                 <div onClick={this.handleClickTitle}>
                     <div id="titlePerson" className="dataSection1">                 
-                    {this.title} 
+                    {this.state.title} 
                     </div>
                 </div>
             </div>
