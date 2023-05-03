@@ -36,7 +36,6 @@ class App extends Component {
             },
           };
 
-      
     }
     async componentDidMount() {
       if(this.state.educations.length===0){
@@ -179,9 +178,6 @@ class App extends Component {
       let ElementD=document.getElementById("educationForm")
       ElementD.style.visibility = "hidden";
     };
-
-
-
         
     onSubmitTaskEx = (e) => {
       if(e!=null)
@@ -208,7 +204,7 @@ class App extends Component {
           id:uniqid(),
         }
       });
-      //console.log("here:"+JSON.stringify(this.state.experiences));
+      
       let ElementD=document.getElementById("experienceForm")
       ElementD.style.visibility = "hidden"
     };
