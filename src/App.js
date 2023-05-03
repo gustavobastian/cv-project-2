@@ -12,8 +12,10 @@ class App extends Component {
         super()
 
         this.state = {
-            formEd:"none",
-            formEx:"none",
+            name:"Peter Ivanovic",
+            telephone:"44468321",
+            contact:"PeterIvanovic@hotmail.com",
+            title:"Phd. AstroPhysics",
             educations:[],
             education:{
               universityName:"Moon university",
@@ -52,8 +54,10 @@ class App extends Component {
             };
       
       this.setState({  
-        formEd:this.state.formEd,
-        formEx:this.state.formEx,      
+        name:this.state.name,
+        telephone:this.state.telephone,  
+        contact:this.state.contact,
+        title:this.state.title, 
         educations: this.state.educations.concat(this.state.education),
         education: { 
           universityName:"university",
@@ -73,8 +77,10 @@ class App extends Component {
 
     handleChangeUn = (e) => {      
       this.setState({
-        formEd:this.state.formEd,
-        formEx:this.state.formEx,
+        name:this.state.name,
+        telephone:this.state.telephone,  
+        contact:this.state.contact,
+        title:this.state.title, 
         educations:this.state.educations,
         education : {
           universityName:e.target.value,          
@@ -90,8 +96,10 @@ class App extends Component {
     };
     handleChangeEdTit = (e) => {      
       this.setState({
-        formEd:this.state.formEd,
-        formEx:this.state.formEx,
+        name:this.state.name,
+        telephone:this.state.telephone,  
+        contact:this.state.contact,
+        title:this.state.title, 
         educations:this.state.educations,
         education : {          
           universityName:this.state.education.universityName,          
@@ -107,8 +115,10 @@ class App extends Component {
     };
     handleChangeEdStart = (e) => {      
       this.setState({
-        formEd:this.state.formEd,
-        formEx:this.state.formEx,
+        name:this.state.name,
+        telephone:this.state.telephone,  
+        contact:this.state.contact,
+        title:this.state.title, 
         educations:this.state.educations,
         education : {          
           universityName:this.state.education.universityName,          
@@ -125,8 +135,10 @@ class App extends Component {
     };
     handleChangeEdEnd= (e) => {      
       this.setState({
-        formEd:this.state.formEd,
-        formEx:this.state.formEx,
+        name:this.state.name,
+        telephone:this.state.telephone,  
+        contact:this.state.contact,
+        title:this.state.title, 
         educations:this.state.educations,
         education : {          
           universityName:this.state.education.universityName,          
@@ -143,8 +155,10 @@ class App extends Component {
     };
     handleChangeEdNote= (e) => {      
       this.setState({
-        formEd:this.state.formEd,
-        formEx:this.state.formEx,
+        name:this.state.name,
+        telephone:this.state.telephone,  
+        contact:this.state.contact,
+        title:this.state.title, 
         educations:this.state.educations,
         education : {          
           universityName:this.state.education.universityName,          
@@ -178,8 +192,10 @@ class App extends Component {
       };
 
       this.setState({
-        formEd:'none',
-        formEx:this.state.formEx,        
+        name:this.state.name,
+        telephone:this.state.telephone,  
+        contact:this.state.contact,
+        title:this.state.title, 
         educations: this.state.educations,
         education: this.state.education,
         experiences:this.state.experiences.concat(this.state.experience),
@@ -199,8 +215,10 @@ class App extends Component {
 
     handleChangeExComp = (e) => {      
       this.setState({
-        formEd:this.state.formEd,
-        formEx:this.state.formEx,
+        name:this.state.name,
+        telephone:this.state.telephone,  
+        contact:this.state.contact,
+        title:this.state.title, 
         educations:this.state.educations,
         education : this.state.education,
         experiences:this.state.experiences,
@@ -217,8 +235,10 @@ class App extends Component {
     };
     handleChangeExTit = (e) => {      
       this.setState({
-        formEd:this.state.formEd,
-        formEx:this.state.formEx,
+        name:this.state.name,
+        telephone:this.state.telephone,  
+        contact:this.state.contact,
+        title:this.state.title, 
         educations:this.state.educations,
         education : this.state.education,
         experiences:this.state.experiences,
@@ -235,8 +255,10 @@ class App extends Component {
     };
     handleChangeExStart = (e) => {      
       this.setState({
-        formEd:this.state.formEd,
-        formEx:this.state.formEx,
+        name:this.state.name,
+        telephone:this.state.telephone,  
+        contact:this.state.contact,
+        title:this.state.title, 
         educations:this.state.educations,
         education : this.state.education,
         experiences:this.state.experiences,
@@ -253,8 +275,10 @@ class App extends Component {
     };
     handleChangeExEnd= (e) => {      
       this.setState({
-        formEd:this.state.formEd,
-        formEx:this.state.formEx,
+        name:this.state.name,
+        telephone:this.state.telephone,  
+        contact:this.state.contact,
+        title:this.state.title, 
         educations:this.state.educations,
         education : this.state.education,                
         experiences:this.state.experiences,
@@ -271,8 +295,10 @@ class App extends Component {
     };
     handleChangeExNote= (e) => {      
       this.setState({
-        formEd:this.state.formEd,
-        formEx:this.state.formEx,
+        name:this.state.name,
+        telephone:this.state.telephone,  
+        contact:this.state.contact,
+        title:this.state.title, 
         educations:this.state.educations,
         education :  this.state.education, 
         experiences:this.state.experiences,
@@ -291,8 +317,10 @@ class App extends Component {
     handleChangeEdForm= (e) => {              
       console.log("need more education");
       this.setState({
-        formEd: "",
-        formEx: "none",
+        name:this.state.name,
+        telephone:this.state.telephone,  
+        contact:this.state.contact,
+        title:this.state.title, 
         educations:this.state.educations,
         education : this.state.education,                
         experiences:this.state.experiences,
@@ -325,8 +353,8 @@ class App extends Component {
 
         return (
           <div>
-          <Header />          
-          <Section1 />
+          <Header values={this.state}/>          
+          <Section1   values={this.state}/>
           <div className="educationLine" >
             <p>Education:</p>
             <button className="buttonPlus" 

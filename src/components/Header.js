@@ -2,15 +2,14 @@ import React, { Component } from 'react'
 import '../styles/Header.css';
 
 class Header extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         
-    
+    console.log(props.values)
 
-    this.state={
-        telephone:"33-252156421",
-        contact:"Pter@ftam.com.ar"
-    };
+    this.state=props.values;
+    
+    
     this.handleClickContact=this.handleClickContact.bind(this);   
     this.handleClickTelephone=this.handleClickTelephone.bind(this);
     }
@@ -21,9 +20,18 @@ class Header extends Component {
             console.log("here")}
         else{
             this.setState({
-                telephone:response,
-            });
+                name:this.state.name,
+                telephone:response,  
+                contact:this.state.contact,
+                title:this.state.title, 
+                educations:this.state.educations,
+                education : this.state.education,                
+                experiences:this.state.experiences,
+                experience:this.state.experience,
+              })
+              this.props.values.telephone=response;
         } 
+        
        
     };
     handleClickContact (){
@@ -31,10 +39,18 @@ class Header extends Component {
         let response=prompt("Email:",this.state.contact)
         if((response==="")||response===null){            
             return;}
-        else{            
+        else{                        
             this.setState({
+                name:this.state.name,
+                telephone:this.state.telephone,  
                 contact:response,
-                });
+                title:this.state.title, 
+                educations:this.state.educations,
+                education : this.state.education,                
+                experiences:this.state.experiences,
+                experience:this.state.experience,
+                })
+                this.props.values.contact=response;    
             
         }
     };
@@ -44,7 +60,7 @@ class Header extends Component {
             <div className="Header">
             <div className="telephone">
                 <div className="LabelHeader">Tel:</div>
-                <div className="dataHeader"><div id="telephone" onClick={this.handleClickTelephone}> {this.state.telephone}</div>
+                <div className="dataHeader"><div id="telephone" onClick={this.handleClickTelephone}> {this.props.values.telephone}</div>
                 </div>
             </div>   
             <div className="address">

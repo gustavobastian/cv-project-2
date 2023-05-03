@@ -6,12 +6,8 @@ class Section1 extends Component {
     constructor(props) {
         super(props)
         
-
-        this.state={
-            name:"Peter Ivanovic",
-            title:"Phd. AstroPhysics",
-        };
-
+        this.state=props.values;
+        
         this.handleClickName=this.handleClickName.bind(this);
         this.handleClickTitle=this.handleClickTitle.bind(this);
     }
@@ -23,15 +19,23 @@ class Section1 extends Component {
         if((response==="")||response===null){
             return;
         }
-        else{
+        else{            
             this.setState({
                 name:response,
-            })        
+                telephone:this.state.telephone,  
+                contact:this.state.contact,
+                title:this.state.title, 
+                educations:this.state.educations,
+                education : this.state.education,                
+                experiences:this.state.experiences,
+                experience:this.state.experience,
+              })
+              this.props.values.name=response;
         }
     };
     handleClickTitle(){
-        console.log('the ocuppation is:', this.title);
-        let response=prompt("title:",this.title)
+        console.log('the ocuppation is:', this.state.title);
+        let response=prompt("title:",this.state.title)
         if((response==="")||response===null){
             return;
         }
@@ -39,6 +43,17 @@ class Section1 extends Component {
             this.setState({
                 title:response,
             });
+            this.setState({
+                name:this.state.name,
+                telephone:this.state.telephone,  
+                contact:this.state.contact,
+                title:response, 
+                educations:this.state.educations,
+                education : this.state.education,                
+                experiences:this.state.experiences,
+                experience:this.state.experience,
+              })
+              this.props.values.title=response;
         }
     };
 
