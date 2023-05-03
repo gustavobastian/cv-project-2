@@ -10,12 +10,9 @@ class Section3 extends Component {
     render() {
         return (
             <div className="Section3">
-
-            <div className="experienceLine">Experience:</div>
-            <hr></hr>
             <ul >
             {this.props.experiences.map((experience) => {
-                return <li key={experience.title}>
+                return <li key={experience.id}>
                     <ExperienceElement companyName={experience.companyName} titleName={experience.titleName} dateEntry={experience.dateEntry} dateEnd={experience.dateEnd} Note={experience.note}/>
                     </li>;
             })}

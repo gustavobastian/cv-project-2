@@ -4,12 +4,16 @@ import Header from './components/Header'
 import Section1 from './components/Section1';
 import Section2 from './components/Section2';
 import Section3 from './components/Section3';
+import uniqid from "uniqid";
+
 
 class App extends Component {
     constructor() {
         super()
 
-        this.state = {            
+        this.state = {
+            formEd:"none",
+            formEx:"none",
             educations:[],
             education:{
               universityName:"Moon university",
@@ -17,6 +21,7 @@ class App extends Component {
               dateEnd:"2005",
               dateEntry:"2002",
               note:"first tactile button based on wood.",
+              id: uniqid()
             },
             experiences:[],
             experience:{
@@ -24,7 +29,9 @@ class App extends Component {
               titleName:"First job",
               dateEntry:"1999",
               dateEnd:"2001",
-              note:"Nothing done well"},
+              note:"Nothing done well",
+              id: uniqid()
+            },
           };
 
       
@@ -44,24 +51,30 @@ class App extends Component {
              console.log("init ed")             
             };
       
-      this.setState({        
+      this.setState({  
+        formEd:this.state.formEd,
+        formEx:this.state.formEx,      
         educations: this.state.educations.concat(this.state.education),
         education: { 
           universityName:"university",
           title:"title",
           dateEnd:"dateEnd",
           dateEntry:"dateEntry",
-          note:"Note", 
+          note:"Note",
+          id:uniqid(),
         },
         experiences:this.state.experiences,
         experience:this.state.experience,       
       });
+      let ElementD=document.getElementById("educationForm")
+      ElementD.style.visibility = "hidden"
       
-      console.log("after concat:"+JSON.stringify(this.state.educations));
     };
 
     handleChangeUn = (e) => {      
       this.setState({
+        formEd:this.state.formEd,
+        formEx:this.state.formEx,
         educations:this.state.educations,
         education : {
           universityName:e.target.value,          
@@ -69,7 +82,7 @@ class App extends Component {
           dateEnd:this.state.education.dateEnd,
           dateEntry:this.state.education.dateEntry,
           note:this.state.education.note, 
-          
+          id:this.state.education.id,
         },
         experiences:this.state.experiences,
         experience:this.state.experience,       
@@ -77,13 +90,16 @@ class App extends Component {
     };
     handleChangeEdTit = (e) => {      
       this.setState({
+        formEd:this.state.formEd,
+        formEx:this.state.formEx,
         educations:this.state.educations,
         education : {          
           universityName:this.state.education.universityName,          
           title:e.target.value,   
           dateEnd:this.state.education.dateEnd,
           dateEntry:this.state.education.dateEntry,
-          note:this.state.education.note,        
+          note:this.state.education.note,       
+          id:this.state.education.id, 
         },
         experiences:this.state.experiences,
         experience:this.state.experience,  
@@ -91,13 +107,16 @@ class App extends Component {
     };
     handleChangeEdStart = (e) => {      
       this.setState({
+        formEd:this.state.formEd,
+        formEx:this.state.formEx,
         educations:this.state.educations,
         education : {          
           universityName:this.state.education.universityName,          
           title:this.state.education.title,   
           dateEnd:this.state.education.dateEnd,
           dateEntry:e.target.value,
-          note:this.state.education.note,        
+          note:this.state.education.note,      
+          id:this.state.education.id,  
         },
         experiences:this.state.experiences,
         experience:this.state.experience,  
@@ -106,6 +125,8 @@ class App extends Component {
     };
     handleChangeEdEnd= (e) => {      
       this.setState({
+        formEd:this.state.formEd,
+        formEx:this.state.formEx,
         educations:this.state.educations,
         education : {          
           universityName:this.state.education.universityName,          
@@ -113,6 +134,7 @@ class App extends Component {
           dateEnd:e.target.value,
           dateEntry:this.state.education.dateEntry,
           note:this.state.education.note,        
+          id:this.state.education.id,
         },
         experiences:this.state.experiences,
         experience:this.state.experience,  
@@ -121,6 +143,8 @@ class App extends Component {
     };
     handleChangeEdNote= (e) => {      
       this.setState({
+        formEd:this.state.formEd,
+        formEx:this.state.formEx,
         educations:this.state.educations,
         education : {          
           universityName:this.state.education.universityName,          
@@ -128,12 +152,20 @@ class App extends Component {
           dateEnd:this.state.education.dateEnd,
           dateEntry:this.state.education.dateEntry,
           note:e.target.value,        
+          id:this.state.education.id,
         },
         experiences:this.state.experiences,
         experience:this.state.experience,  
       });     
     
     };
+
+    handleCancelEdForm= (e) => {              
+      console.log("need more experience");
+      let ElementD=document.getElementById("educationForm")
+      ElementD.style.visibility = "hidden";
+    };
+
 
 
         
@@ -145,7 +177,9 @@ class App extends Component {
         console.log("init");
       };
 
-      this.setState({        
+      this.setState({
+        formEd:'none',
+        formEx:this.state.formEx,        
         educations: this.state.educations,
         education: this.state.education,
         experiences:this.state.experiences.concat(this.state.experience),
@@ -154,14 +188,19 @@ class App extends Component {
           titleName:"titleName",
           dateEntry:"dateEntry",
           dateEnd:"dateEnd",
-          note:"Note"
+          note:"Note",
+          id:uniqid(),
         }
       });
-      console.log("here:"+JSON.stringify(this.state.experiences));
+      //console.log("here:"+JSON.stringify(this.state.experiences));
+      let ElementD=document.getElementById("experienceForm")
+      ElementD.style.visibility = "hidden"
     };
 
     handleChangeExComp = (e) => {      
       this.setState({
+        formEd:this.state.formEd,
+        formEx:this.state.formEx,
         educations:this.state.educations,
         education : this.state.education,
         experiences:this.state.experiences,
@@ -170,12 +209,16 @@ class App extends Component {
           titleName:this.state.experience.titleName,
           dateEntry:this.state.experience.dateEntry,
           dateEnd:this.state.experience.dateEnd,
-          note:this.state.experience.note},
+          note:this.state.experience.note,
+          id:this.state.experience.id,
+        },
       });      
       console.log(JSON.stringify(this.state.education))
     };
     handleChangeExTit = (e) => {      
       this.setState({
+        formEd:this.state.formEd,
+        formEx:this.state.formEx,
         educations:this.state.educations,
         education : this.state.education,
         experiences:this.state.experiences,
@@ -184,12 +227,16 @@ class App extends Component {
           titleName:e.target.value,
           dateEntry:this.state.experience.dateEntry,
           dateEnd:this.state.experience.dateEnd,
-          note:this.state.experience.note},
+          note:this.state.experience.note,
+          id:this.state.experience.id
+          },
       });      
       console.log(JSON.stringify(this.state.education))
     };
     handleChangeExStart = (e) => {      
       this.setState({
+        formEd:this.state.formEd,
+        formEx:this.state.formEx,
         educations:this.state.educations,
         education : this.state.education,
         experiences:this.state.experiences,
@@ -198,12 +245,16 @@ class App extends Component {
           titleName:this.state.experience.titleName,
           dateEntry:e.target.value,
           dateEnd:this.state.experience.dateEnd,
-          note:this.state.experience.note},  
+          note:this.state.experience.note,
+          id:this.state.experience.id,
+        },  
       });      
       console.log(JSON.stringify(this.state.education))
     };
     handleChangeExEnd= (e) => {      
       this.setState({
+        formEd:this.state.formEd,
+        formEx:this.state.formEx,
         educations:this.state.educations,
         education : this.state.education,                
         experiences:this.state.experiences,
@@ -212,12 +263,16 @@ class App extends Component {
           titleName:this.state.experience.titleName,
           dateEntry:this.state.experience.dateEntry,
           dateEnd:e.target.value,
-          note:this.state.experience.note},  
+          note:this.state.experience.note,
+          id:this.state.experience.id,
+        },  
       });      
       console.log(JSON.stringify(this.state.education))
     };
     handleChangeExNote= (e) => {      
       this.setState({
+        formEd:this.state.formEd,
+        formEx:this.state.formEx,
         educations:this.state.educations,
         education :  this.state.education, 
         experiences:this.state.experiences,
@@ -226,53 +281,100 @@ class App extends Component {
           titleName:this.state.experience.titleName,
           dateEntry:this.state.experience.dateEntry,
           dateEnd:this.state.experience.dateEnd,
-          note:e.target.value},  
+          note:e.target.value,
+          id:this.state.experience.id,
+        },  
       });      
       console.log(JSON.stringify(this.state.education))
     };
 
-
+    handleChangeEdForm= (e) => {              
+      console.log("need more education");
+      this.setState({
+        formEd: "",
+        formEx: "none",
+        educations:this.state.educations,
+        education : this.state.education,                
+        experiences:this.state.experiences,
+        experience:{
+          companyName:this.state.experience.companyName,
+          titleName:this.state.experience.titleName,
+          dateEntry:this.state.experience.dateEntry,
+          dateEnd:e.target.value,
+          note:this.state.experience.note,
+          id:this.state.experience.id,
+        },  
+      });    
+      let ElementD=document.getElementById("educationForm")
+      ElementD.style.visibility = "";
+      
+    };
+    handleChangeExForm= (e) => {              
+      console.log("need more experience");
+      let ElementD=document.getElementById("experienceForm")
+      ElementD.style.visibility = "";
+    };
+    handleCancelExForm= (e) => {              
+      console.log("need more experience");
+      let ElementD=document.getElementById("experienceForm")
+      ElementD.style.visibility = "hidden";
+    };
 
     render() {
       const { education, educations, experience, experiences } = this.state;
 
         return (
           <div>
-          <Header />
+          <Header />          
           <Section1 />
+          <div className="educationLine" >
+            <p>Education:</p>
+            <button className="buttonPlus" 
+            onClick={this.handleChangeEdForm}
+            >+</button>
+          </div>
+          <hr></hr>
           <Section2 educations={educations}/>
-          <Section3 experiences={experiences}/>
-          
-          <form id="education">
-          
-                <div className='myForm' >
-                <hr></hr>  
-                    <div className='line1'>
-                    <label htmlFor="UniversityInput">University</label>
-                    <input type="text" id="UniversityInput" onChange={this.handleChangeUn} placeholder="university"/>                    
-                    <label  htmlFor="titleInput">Title</label>
-                    <input type="text" id="titleInput" onChange={this.handleChangeEdTit}  placeholder="title/degree"/>
-                    </div>
-                    <div className='line1'>
-                    <label htmlFor="entryInput" >Start</label>
-                    <input type="text" id="entryInput"  onChange={this.handleChangeEdStart} placeholder="2000"/>
-                    <label htmlFor="endInput">End</label>
-                    <input type="text" id="endInput" onChange={this.handleChangeEdEnd} placeholder="2002"/>
-                    </div>
-                    <div className='line1'>
-                    <label htmlFor="noteInput">Note</label>
-                    <textarea rows="5" columns="50" id="noteInput" placeholder="Something done"  onChange={this.handleChangeEdNote}/>
-                    </div>  
-                    <div>
-                      <button type="button" onClick={this.onSubmitTaskEd}>Add Education</button>
-                      <button type="button" onClick={this.onSubmitTaskEd}>Hide</button>
-                    </div>                  
-                </div>
+         
+          <form >          
+            <div className='myForm' id="educationForm"  >
+              <hr></hr>  
+                  <div className='line1'>
+                  <label htmlFor="UniversityInput">University</label>
+                  <input type="text" id="UniversityInput" onChange={this.handleChangeUn} placeholder="university"/>                    
+                  <label  htmlFor="titleInput">Title</label>
+                  <input type="text" id="titleInput" onChange={this.handleChangeEdTit}  placeholder="title/degree"/>
+                  </div>
+                  <div className='line1'>
+                  <label htmlFor="entryInput" >Start</label>
+                  <input type="text" id="entryInput"  onChange={this.handleChangeEdStart} placeholder="2000"/>
+                  <label htmlFor="endInput">End</label>
+                  <input type="text" id="endInput" onChange={this.handleChangeEdEnd} placeholder="2002"/>
+                  </div>
+                  <div className='line1'>
+                  <label htmlFor="noteInput">Note</label>
+                  <textarea rows="5" columns="50" id="noteInput" placeholder="Something done"  onChange={this.handleChangeEdNote}/>
+                  </div>  
+                  <div className='buttonsLine'>
+                    <button type="button" onClick={this.onSubmitTaskEd}>Submit</button>
+                    <button type="button" onClick={this.handleCancelEdForm}>Cancel</button>
+                  </div>                  
+              </div>
           </form>  
           
-          <form id="experience">
+          <div className="educationLine">
+            <p>Experience:</p> 
+            <button className="buttonPlus" onClick={this.handleChangeExForm}>
+              +</button>
+          </div>
           <hr></hr>
-                <div className='myForm' >
+          <Section3 experiences={experiences}/>
+          
+          
+          <form id="experienceForm">
+          
+            <div className='myForm' >
+                <hr></hr>
                     <div className='line1'>
                     <label htmlFor="CompanyInput">Company</label>
                     <input type="text" id="CompanyInput" onChange={this.handleChangeExComp} placeholder="Company"/>                    
@@ -289,14 +391,13 @@ class App extends Component {
                     <label htmlFor="noteInput2">Note</label>
                     <textarea rows="5" columns="50" id="noteInput2" placeholder="Something done"  onChange={this.handleChangeExNote}/>
                     </div>                    
-                    <button type="button" onClick={this.onSubmitTaskEx}>Add Experience</button>
-                </div>
+                    <div className='buttonsLine'>
+                    <button type="button" onClick={this.onSubmitTaskEx}>Submit</button>
+                    <button type="button" onClick={this.handleCancelExForm}>Cancel</button>
+                    </div>
+            </div>
           </form>  
-
-          
           </div>
-          
-          
             
         )
     }

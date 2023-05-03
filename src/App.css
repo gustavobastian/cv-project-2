@@ -11,6 +11,20 @@ form{
   width: 100%;
 }
 
+.educationLine{
+  display:flex;
+  flex-direction: row;  
+  align-items: center;
+  justify-content: space-between !important;
+  width: 80%;
+  font-size: 35px;
+  font-weight: bold;
+  padding-left: 10%;
+  margin-left: 10%;
+  padding-right: 10%;
+  margin-right: 10%;  
+}
+
 .myForm{
   display:flex;
   flex-direction: column;
@@ -40,12 +54,39 @@ input{
 #experience{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;  
   margin-left: 10%;
   margin-right:  10%;
   width: 80%;
 }
 button{
-  background: linear-gradient(rgb(163, 163, 228),rgb(173, 171, 171),rgb(163, 163, 228));
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: white;
   margin: 10px;
+}
+button:hover{
+  background: rgb(219, 219, 219);
+  margin: 10px;
+}
+.buttonPlus{
+  background: transparent;
+  border-style: none;
+  font-size: 35px;
+  font-weight: bold;
+}
+.buttonPlus:hover{
+  background: rgb(235, 234, 234);
+  border-style: none;
+  font-size: 35px;
+  font-weight: bold;
+}
+.hidden { display:none; }
+.buttonsLine{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
 }

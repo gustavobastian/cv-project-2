@@ -11,13 +11,12 @@ class Section2 extends Component {
 
     render() {
         return (
-            <div className="Section2">
-            <div className="educationLine">Education:</div>
-            <hr></hr>
+            <div className="Section2">            
             <ul >            
             {this.props.educations.map((education) => {
-                return <li key={education.title}>
+                return <li key={education.id}>
                     <EducationElement university={education.universityName} title={education.title} dateEntry={education.dateEntry} dateEnd={education.dateEnd} Note={education.note}/>
+                    <button>Del</button>
                     </li>;
             })}
             </ul>
