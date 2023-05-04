@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/gustavobastian/cv-project/precache-manifest.8adcc680ff3276192a566840d3ad49d1.js"
+  "/cv-project/precache-manifest.098708c52d0103f29f09e7019eb1690c.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/gustavobastian/cv-project/index.html", {
+workbox.routing.registerNavigationRoute("/cv-project/index.html", {
   
   blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });
