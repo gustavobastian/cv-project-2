@@ -15,7 +15,7 @@ class App extends Component {
             name:"Peter Ivanovic",
             telephone:"44468321",
             contact:"PeterIvanovic@hotmail.com",
-            title:"Phd. AstroPhysics",
+            title:"Phd. AstroPhysics ",
             educations:[],
             education:{
               universityName:"Moon university",
