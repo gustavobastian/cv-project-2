@@ -3,7 +3,7 @@ import '../App.css';
 import '../styles/formEducation.css'
 import uniqid from "uniqid";
 
-class educationElement extends Component {
+class formEducation extends Component {
     constructor(props) {
         super(props)
         
@@ -138,4 +138,4 @@ class educationElement extends Component {
     }
 }
 
-export default educationElement;
+export default formEducation;

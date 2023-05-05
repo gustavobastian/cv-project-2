@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import '../styles/Section3.css';
 import ExperienceElement from './experienceElement';
+import { FaTrashAlt} from 'react-icons/fa';
+
 
 class Section3 extends Component {
     constructor(props) {
         super(props)        
+        this.handlerDelete=this.handlerDelete.bind(this);
     }
 
     handlerDelete= (e)=>{
@@ -21,7 +24,7 @@ class Section3 extends Component {
             {this.props.experiences.map((experience) => {
                 return <li key={experience.id}>
                     <ExperienceElement companyName={experience.companyName} titleName={experience.titleName} dateEntry={experience.dateEntry} dateEnd={experience.dateEnd} Note={experience.note}/>
-                    <button id={experience.id} onClick={this.handlerDelete}>Del</button>
+                    <FaTrashAlt id={experience.id} onClick={this.handlerDelete} className='deleteButton'>Del</FaTrashAlt>
                     </li>;
             })}
             </ul>

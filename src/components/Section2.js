@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import EducationElement from '../components/educationElement';
 import '../styles/Section2.css';
+import { FaTrashAlt} from 'react-icons/fa';
 
 class Section2 extends Component {
     constructor(props) {
@@ -8,13 +9,12 @@ class Section2 extends Component {
 
       this.state= props.value;
       
-      
+      this.handlerDelete=this.handlerDelete.bind(this);
     };
     
     handlerDelete= (e)=>{
         console.log("delete "+JSON.stringify(e.target.id));  
-        let localId=e.target.id
-        
+        let localId=e.target.id;        
         this.props.handlerDeleteEd(localId);
     };
 
@@ -23,9 +23,9 @@ class Section2 extends Component {
             <div className="Section2">            
             <ul >            
             {this.props.value.educations.map((education) => {
-                return <li key={education.id}>
+                return <li key={education.id} className='lineItem'>
                     <EducationElement university={education.universityName} title={education.title} dateEntry={education.dateEntry} dateEnd={education.dateEnd} Note={education.note}/>
-                    <button id={education.id} onClick={this.handlerDelete}>Del</button>
+                    <FaTrashAlt id={education.id} onClick={this.handlerDelete} className='deleteButton'>Del</FaTrashAlt>
                     
                     </li>;
             })}

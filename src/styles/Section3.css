@@ -47,4 +47,16 @@ hr{
     font-size: calc(10px + 2vmin);
     color: white;
   }
-  
+.deleteButton{
+  background: white;
+  border: none;
+  }
+.deleteButton:hover{
+    background: rgb(219, 219, 219);
+    border: none;
+    }  
+.iconColor{
+  color:red;
+  margin-left: 0;
+  padding-left: 0;
+}
