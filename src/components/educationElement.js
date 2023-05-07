@@ -3,7 +3,7 @@ import '../styles/educationElement.css';
 
 
 const educationElement = props=>{
-        const [state,setState]=useState({            
+        const [state,setState]= useState({            
             universityName:props.university,
             title:props.title,
             dateEnd:props.dateEnd,
