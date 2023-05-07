@@ -1,96 +1,80 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import '../styles/experienceElement.css';
 
-class experienceElement extends Component {
-    constructor(props) {
-        super(props)
+const experienceElement = (props)=> {
+    const [state,setState]= useState({
+        companyName:props.companyName,
+        titleName:props.titleName,
+        dateEntry:props.dateEntry,
+        dateEnd:props.dateEnd,
+        note:props.Note
+    });
 
-        this.state={
-            companyName:props.companyName,
-            titleName:props.titleName,
-            dateEntry:props.dateEntry,
-            dateEnd:props.dateEnd,
-            note:props.Note
-        };
-
-        this.handleClickDateEnd=this.handleClickDateEnd.bind(this);
-        this.handleClickDateEntry=this.handleClickDateEntry.bind(this);
-        this.handleClickTitleExperience=this.handleClickTitleExperience.bind(this);
-        this.handleClickCompanyExperience=this.handleClickCompanyExperience.bind(this);
-        this.handleClickNoteExperience=this.handleClickNoteExperience.bind(this);
-        
-    }     
-    handleClickDateEnd(){
-        let response=prompt("DateEnd:",this.state.dateEnd);
+    const handleClickDateEnd=()=>{
+        let response=prompt("DateEnd:",state.dateEnd);
         if((response==="")||response===null){
             console.log("here")}
         else{
-            this.setState({
+            setState({
                 dateEnd:parseInt(response),
             });
         } 
-       
     };
 
-    handleClickDateEntry(){
-        let response=prompt("DateEntry:",this.state.dateEntry);
+    const handleClickDateEntry=()=>{
+        let response=prompt("DateEntry:",state.dateEntry);
         if((response==="")||response===null){
             console.log("here")}
         else{
-            this.setState({
+            setState({
                 dateEntry:parseInt(response),
             });
         } 
-       
     };
 
-    handleClickTitleExperience(){
-        let response=prompt("TitleName:",this.state.titleName);
+    const handleClickTitleExperience=()=>{
+        let response=prompt("TitleName:",state.titleName);
         if((response==="")||response===null){
             console.log("here")}
         else{
-            this.setState({
+            setState({
                 titleName:response,
             });
         }        
     };
 
-    handleClickCompanyExperience(){
-        let response=prompt("Company Name:",this.state.companyName);
+    const handleClickCompanyExperience=()=>{
+        let response=prompt("Company Name:",state.companyName);
         if((response==="")||response===null){
             console.log("here")}
         else{
-            this.setState({
+            setState({
                 companyName:response,
             });
         }        
     };
 
-    handleClickNoteExperience(){
-        let response=prompt("Note:",this.state.note);
+    const handleClickNoteExperience=()=>{
+        let response=prompt("Note:",state.note);
         if((response==="")||response===null){
             console.log("here")}
         else{
-            this.setState({
+            setState({
                 note:response,
             });
         }        
     };
-
-
-    render() {
         return (
             <div>
             <div className="experienceElement">            
-            <div className="labelCompany" onClick={this.handleClickCompanyExperience}>{this.state.companyName}</div>
-            <div className="titleExperience" onClick={this.handleClickTitleExperience}> {this.state.titleName}</div>
-            <div className="datesExperience" onClick={this.handleClickDateEntry}>{this.state.dateEntry}/</div>
-            <div className="datesExperience" onClick={this.handleClickDateEnd}>{this.state.dateEnd}</div>
+            <div className="labelCompany" onClick={handleClickCompanyExperience.bind(this,'')}>{state.companyName}</div>
+            <div className="titleExperience" onClick={handleClickTitleExperience.bind(this,'')}> {state.titleName}</div>
+            <div className="datesExperience" onClick={handleClickDateEntry.bind(this,'')}>{state.dateEntry}/</div>
+            <div className="datesExperience" onClick={handleClickDateEnd.bind(this,'')}>{state.dateEnd}</div>
             </div>
-            <div className="Note" onClick={this.handleClickNoteExperience}> Note: {this.state.note}</div>
+            <div className="Note" onClick={handleClickNoteExperience.bind(this,'')}> Note: {state.note}</div>
             </div>
-        )
-    }
+        )    
 }
 
 
