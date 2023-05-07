@@ -6,13 +6,7 @@ import '../styles/formEducation.css'
 
 const formExperience =(props) => {
     
-        const [state,setState]=useState(props.value);
-
-        
-
-    /*    this.handleCancelExForm=this.handleCancelExForm.bind(this);
-        this.onSubmitTaskEx=this.onSubmitTaskEx.bind(this);*/    
-
+    const [state,setState]=useState(props.value);
 
     const handleChangeExComp = (e) => {      
         setState({
