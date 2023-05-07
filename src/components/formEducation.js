@@ -1,21 +1,14 @@
-import React, { Component ,useState} from 'react'
+import React, { useState} from 'react'
 import '../App.css';
 import '../styles/formEducation.css'
-import uniqid from "uniqid";
+
 
 const formEducation = (props)=>{
     
-    
     const [state,setState]= useState(props.value);
 
-    console.log((state))
-    /*    this.state=this.props.value;
-
-        this.handleCancelEdForm=this.handleCancelEdForm.bind(this);
-        this.onSubmitTaskEd=this.onSubmitTaskEd.bind(this);*/
+    console.log(state)
     
-
-
     const handleCancelEdForm=()=>{
         props.handlerCancelEd();        
     };
@@ -31,6 +24,7 @@ const formEducation = (props)=>{
     };
 
     const handleChangeUn = (e) => {          
+      console.log("uni:"+JSON.stringify(state.education))
       setState({
         education : {
           universityName:e.target.value,          
@@ -119,7 +113,7 @@ const formEducation = (props)=>{
                   </div>  
                   <div className='buttonsLine'>
                     <button type="button" onClick={(event)=>{onSubmitTaskEd(event)}}>Submit</button>
-                    <button type="button" onClick={(event)=>{handleCancelEdForm(event)}}>Cancel</button>
+                    <button type="button" onClick={(event)=>{handleCancelEdForm()}}>Cancel</button>
                   </div>           
                </div>   
             </div>

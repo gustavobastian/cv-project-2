@@ -1,16 +1,10 @@
-import React, { Component ,useState} from 'react'
+import React, { useState} from 'react'
 import '../styles/Header.css';
 
 const Header = (props) => {
     
     const [state,setState]=useState(props.values)    ;
     
-
-    
-    /*
-    
-    this.handleClickContact=this.handleClickContact.bind(this);   
-    this.handleClickTelephone=this.handleClickTelephone.bind(this);*/
     
     const handleClickTelephone=(event)=>{
         console.log('this is:', state.telephone);

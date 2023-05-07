@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, {  useState } from 'react'
 import '../App.css';
 import '../styles/formEducation.css'
 
@@ -11,10 +11,10 @@ const formExperience =(props) => {
     const handleChangeExComp = (e) => {      
         setState({
           experience: {
-            companyName:e.target.value,
-            titleName:state.experience.titleName,
-            dateEntry:state.experience.dateEntry,
-            dateEnd:state.experience.dateEnd,
+            companyName:e.target.value,            
+            titleName:state.titleName,            
+            dateEntry:state.dateEntry,            
+            dateEnd:state.dateEnd,
             note:state.experience.note,
             id:state.experience.id,
           },
@@ -23,24 +23,25 @@ const formExperience =(props) => {
       };
       const handleChangeExTit = (e) => {      
         setState({
-          experience: {
+          experience: {            
             companyName:state.experience.companyName,
-            titleName:e.target.value,
-            dateEntry:state.experience.dateEntry,
-            dateEnd:state.experience.dateEnd,
+            titleName:e.target.value,            
+            dateEntry:state.dateEntry,            
+            dateEnd:state.dateEnd,
             note:state.experience.note,
-            id:state.experience.id
+            id:state.experience.id,
             },
         });      
         
       };
-      const handleChangeExStart = (e) => {      
+      const handleChangeExStart = (e) => { 
+        console.log(e.target.value)     
         setState({
-          experience:{
+          experience:{            
             companyName:state.experience.companyName,
             titleName:state.experience.titleName,
-            dateEntry:e.target.value,
-            dateEnd:state.experience.dateEnd,
+            dateEntry:e.target.value,            
+            dateEnd:state.dateEnd,
             note:state.experience.note,
             id:state.experience.id,
           },  
@@ -48,6 +49,7 @@ const formExperience =(props) => {
         
       };
       const handleChangeExEnd= (e) => {      
+        console.log(e.target.value)
         setState({        
           experience:{
             companyName:state.experience.companyName,
@@ -101,8 +103,8 @@ const formExperience =(props) => {
                     <textarea rows="5" columns="50" id="noteInput2" placeholder="Something done"  onChange={(event)=>{handleChangeExNote(event)}}/>
                     </div>                    
                     <div className='buttonsLine'>
-                    <button type="button" onClick={(event)=>{onSubmitTaskEx(event)}}>Submit</button>
-                    <button type="button" onClick={(event)=>{handleCancelExForm(event)}}>Cancel</button>
+                    <button type="button" onClick={(event)=>{onSubmitTaskEx()}}>Submit</button>
+                    <button type="button" onClick={(event)=>{handleCancelExForm()}}>Cancel</button>
                     
                   </div>           
                </div>   

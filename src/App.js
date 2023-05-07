@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Component} from 'react'
+import React, { useState,useEffect} from 'react'
 import Header from './components/Header'
 import Section1 from './components/Section1';
 import Section2 from './components/Section2';
@@ -10,134 +10,150 @@ import FormExperience from './components/formExperience'
 import uniqid from "uniqid";
 
 
-class App extends Component {
-    constructor() {
-        super()
+const  App = () => {    
+    const [state, setState]=useState({
+      showEd:false,
+      showEx:false,
+      name:"Peter Ivanovic",
+      telephone:"44468321",
+      contact:"PeterIvanovic@hotmail.com",
+      title:"Phd. AstroPhysics ",
+      educations:[{
+        universityName:"Moon university",
+        title:"Periscope engineer",
+        dateEnd:"2005",
+        dateEntry:"2002",
+        note:"first Periscope based on wood.",
+        id: uniqid()
+      },],
+      education:{
+        universityName:"Moon university",
+        title:"Periscope  engineer",
+        dateEnd:"2005",
+        dateEntry:"2002",
+        note:"first Periscope  based on wood.",
+        id: uniqid()
+      },
+      experiences:[{
+        companyName:"My comp",
+        titleName:"First job",
+        dateEntry:"1999",
+        dateEnd:"2001",
+        note:"Nothing done well",
+        id: uniqid()
+      },],
+      experience:{
+        companyName:"My comp",
+        titleName:"First job",
+        dateEntry:"1999",
+        dateEnd:"2001",
+        note:"Nothing done well",
+        id: uniqid()
+      },
+    })
         
-        this.state = {
+
+    const setEd=() => {
+      setState({
+        showEd:true,
+        showEx:false,
+        name:state.name,
+        telephone:state.telephone,
+        contact:state.contact,
+        title:state.title,
+        educations:state.educations,
+        education:{
+          universityName:"Moon university",
+          title:"Periscope  engineer",
+          dateEnd:"2005",
+          dateEntry:"2002",
+          note:"first Periscope  based on wood.",
+          id: uniqid()
+        },
+        experiences:state.experiences,
+        experience:state.experience,
+       });
+    };
+    const unSetEd=() => {
+      setState({
+        showEd:false,
+        showEx:false,
+        name:state.name,
+        telephone:state.telephone,
+        contact:state.contact,
+        title:state.title,
+        educations:state.educations,
+        education:state.education,
+        experiences:state.experiences,
+        experience:state.experience,
+      });
+    };
+    const setEx = ()=> {
+      setState({
+        showEd:false,
+        showEx:true,        
+        name:state.name,
+        telephone:state.telephone,
+        contact:state.contact,
+        title:state.title,
+        educations:state.educations,
+        education:state.education,
+        experiences:state.experiences,
+        experience:{
+          companyName:"My comp",
+          titleName:"First job",
+          dateEntry:"1999",
+          dateEnd:"2001",
+          note:"Nothing done well",
+          id: uniqid()
+        },
+      });
+    };
+    const unSetEx= () => {
+      console.log("removing ed view")
+      setState({        
+        showEd:false,
+        showEx:false,
+        name:state.name,
+        telephone:state.telephone,
+        contact:state.contact,
+        title:state.title,
+        educations:state.educations,
+        education:state.education,
+        experiences:state.experiences,
+        experience:state.experience,
+      });
+    };
+
+    const handlerDeleteEd= (e)=>{      
+      let arrayAlt=[];      
+      state.educations.forEach(element => {
+            if(element.id===e){
+                console.log("found!");
+            }
+            else{
+                arrayAlt.push(element);
+            }
+        });      
+        setState({
             showEd:false,
             showEx:false,
-            name:"Peter Ivanovic",
-            telephone:"44468321",
-            contact:"PeterIvanovic@hotmail.com",
-            title:"Phd. AstroPhysics ",
-            educations:[{
-              universityName:"Moon university",
-              title:"Periscope engineer",
-              dateEnd:"2005",
-              dateEntry:"2002",
-              note:"first Periscope based on wood.",
-              id: uniqid()
-            },],
-            education:{
-              universityName:"Moon university",
-              title:"Periscope  engineer",
-              dateEnd:"2005",
-              dateEntry:"2002",
-              note:"first Periscope  based on wood.",
-              id: uniqid()
-            },
-            experiences:[{
-              companyName:"My comp",
-              titleName:"First job",
-              dateEntry:"1999",
-              dateEnd:"2001",
-              note:"Nothing done well",
-              id: uniqid()
-            },],
-            experience:{
-              companyName:"My comp",
-              titleName:"First job",
-              dateEntry:"1999",
-              dateEnd:"2001",
-              note:"Nothing done well",
-              id: uniqid()
-            },
-          };
-
-          this.handlerDeleteEd=this.handlerDeleteEd.bind(this);
-          this.handlerDeleteEx=this.handleDeleteEx.bind(this);
-          this.handlerAddEd=this.handlerAddEd.bind(this);          
-          this.setEd=this.setEd.bind(this);
-          this.unSetEd=this.unSetEd.bind(this);
-          this.handlerCancelEd=this.handlerCancelEd.bind(this);
-          this.setEx=this.setEx.bind(this);
-          this.unSetEx=this.unSetEx.bind(this);
-          this.handlerCancelEx=this.handlerCancelEx.bind(this);
-          this.handlerAddEx=this.handlerAddEx.bind(this);          
-          
-
-    }
-
-    setEd() {
-      this.setState({
-        showEd:true,
-      });
-    };
-    unSetEd() {
-      this.setState({
-        showEd:false,
-      });
-    };
-    setEx() {
-      this.setState({
-        showEx:true,
-      });
-    };
-    unSetEx() {
-      this.setState({
-        showEx:false,
-      });
-    };
-        
-  /*  onSubmitTaskEx = (e) => {
-      if(e!=null)
-        {
-          e.preventDefault();   
-      }else{
-        console.log("init");
-      };
-
-      this.setState({
-        name:this.state.name,
-        telephone:this.state.telephone,  
-        contact:this.state.contact,
-        title:this.state.title, 
-        educations: this.state.educations,
-        education: this.state.education,
-        experiences:this.state.experiences.concat(this.state.experience),
-        experience:{
-          companyName:"companyName",
-          titleName:"titleName",
-          dateEntry:"dateEntry",
-          dateEnd:"dateEnd",
-          note:"Note",
-          id:uniqid(),
-        }
-      });      
-      
-    };*/
-
-    handlerDeleteEd(e){      
-      let arrayAlt=[];      
-      this.state.educations.forEach(element => {
-            if(element.id===e){
-                console.log("found!");
-            }
-            else{
-                arrayAlt.push(element);
-            }
-        });      
-        this.setState({
+            name:state.name,
+            telephone:state.telephone,
+            contact:state.contact,
+            title:state.title,
             educations:arrayAlt,
+            education:state.education,
+            experiences:state.experiences,
+            experience:state.experience,
         })
-        console.log(JSON.stringify(arrayAlt))
-    }
+        console.log(JSON.stringify(state.educations))
+    };
     
-    handleDeleteEx(e){      
+    const handlerDeleteEx=(e)=>{      
       let arrayAlt=[];
-      
-      this.state.experiences.forEach(element => {
+      console.log(e)
+      state.experiences.forEach(element => {
             if(element.id===e){
                 console.log("found!");
             }
@@ -145,16 +161,31 @@ class App extends Component {
                 arrayAlt.push(element);
             }
         });      
-        this.setState({
+        setState({
+          showEd:false,
+          showEx:false,
+          name:state.name,
+          telephone:state.telephone,
+          contact:state.contact,
+          title:state.title,
+          educations:state.educations,
+          education:state.education,
           experiences:arrayAlt,
+          experience:state.experience,
         })
         
-    }
+    };
 
-    handlerAddEd(e){
+    const handlerAddEd= (e) =>{
       console.log(e)
-      this.setState({          
-        educations: this.state.educations.concat(e),
+      setState({          
+        showEd:false,
+        showEx:false,
+        name:state.name,
+        telephone:state.telephone,
+        contact:state.contact,
+        title:state.title,
+        educations: state.educations.concat(e),
         education: { 
           universityName:"university",
           title:"title",
@@ -163,56 +194,83 @@ class App extends Component {
           note:"Note",
           id:uniqid(),
         },
+        experiences:state.experiences,
+        experience:state.experience,
       });
-      this.unSetEd();
-    }
-    handlerCancelEd(W){
-      this.unSetEd();
-    }
-    handlerCancelEx(){
-      this.unSetEx();
-    }
-    handlerAddEx(e){
-      this.setState({          
-        experiences: this.state.educations.concat(e),        
+      
+    };
+    const handlerCancelEd = (W) =>{
+      unSetEd();
+    };
+    const handlerCancelEx=()=>{
+      unSetEx();
+    };
+
+    const handlerAddEx= async (e)=>{
+      console.log("adding experience:"+JSON.stringify(e))
+      console.log("prev:"+state.contact.experiences)
+      let value= await state.experiences.concat(e);
+      console.log("value+"+JSON.stringify(value))
+      setState({
+        showEd: false,
+        showEx: false,
+        name: state.name,
+        telephone: state.telephone,
+        contact: state.contact,
+        title: state.title,
+        educations: state.educations,
+        education: state.educations,
+        experiences: value,
+        experience: state.experience,
       });
-      this.unSetEx();
-    }
-    render() {
-      const { education, educations, experience, experiences } = this.state;
+      
+    };    
+    
+    useEffect(()=>{
+      console.log("altered")
+      let component=document.getElementById("section2");
+      console.log(component)
+    },[state.educations]);
+    
 
-      return (
-        <div>
-          <Header values={this.state}/>          
-          <Section1   values={this.state}/>
-          <div className="educationLine" >
-            <p>Education:</p>
-            <button className="buttonPlus" 
-            onClick={this.setEd}
-            >+</button>
-          </div>
-          <hr className='lineLocal'></hr> 
-          <Section2 value={this.state} handlerDeleteEd={this.handlerDeleteEd}/>          
-          <div>
-          {this.state.showEd && <FormEducation value={this.state} handlerAddEd={this.handlerAddEd} handlerCancelEd={this.handlerCancelEd} />}  
-          </div>
+    useEffect(()=>{
+      console.log("altered")
+      let component=document.getElementById("section3");
+      console.log(component)
+    },[state.experiences]);
 
-
-
-          <div className="educationLine">
-            <p>Experience:</p> 
-            <button className="buttonPlus" onClick={this.setEx}>
-              +</button>            
-          </div>
-          <hr className='lineLocal'></hr>
-          <Section3 experiences={experiences} handlerDeleteEx={this.handlerDeleteEx}/>
-          <div>
-          {this.state.showEx && <FormExperience value={this.state} handlerAddEx={this.handlerAddEx} handlerCancelEx={this.handlerCancelEx} />}  
-          </div>
+    return (
+      <div>
+        <Header values={state}/>          
+        <Section1   values={state}/>
+        <div className="educationLine" >
+          <p>Education:</p>
+          <button className="buttonPlus" 
+          onClick={setEd.bind(this,'')}
+          >+</button>
         </div>
-            
-      )
-    }
+        <hr className='lineLocal'></hr> 
+        <Section2 id="section2" value={state} handlerDeleteEd={(event)=>{handlerDeleteEd(event)}}/>          
+        <div>
+        {state.showEd && <FormEducation value={state} handlerAddEd={(value)=>{handlerAddEd(value)}} handlerCancelEd={(event)=>{handlerCancelEd(event)}} />}  
+        </div>
+
+
+
+        <div className="educationLine">
+          <p>Experience:</p> 
+          <button className="buttonPlus" onClick={setEx.bind(this,'')}>
+            +</button>            
+        </div>
+        <hr className='lineLocal'></hr>
+        <Section3 id="section3" value={state} handlerDeleteEx={(event)=>{handlerDeleteEx(event)}}/>
+        <div>
+        {state.showEx && <FormExperience value={state} handlerAddEx={(event)=>{handlerAddEx(event)}} handlerCancelEx={(event)=>{handlerCancelEx()}} />}  
+        </div>
+      </div>
+          
+    )
+
 }
 
 

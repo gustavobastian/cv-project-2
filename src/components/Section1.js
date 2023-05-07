@@ -1,15 +1,11 @@
-import React, { Component,useState } from 'react'
+import React, { useState } from 'react'
 import '../styles/Section1.css';
 import face from '../assets/face.jpeg'
 
 const Section1 = (props)=> {
-        const [state,setState]= useState(props.values)  
+    const [state,setState]= useState(props.values)  
         
-        /*
-        this.handleClickName=this.handleClickName.bind(this);
-        this.handleClickTitle=this.handleClickTitle.bind(this);
-    */
-
+        
     
     const handleClickName=()=>{
         console.log('this is:', state.name);

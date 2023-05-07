@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import '../styles/experienceElement.css';
 
 const experienceElement = (props)=> {
