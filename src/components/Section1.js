@@ -1,79 +1,77 @@
-import React, { Component } from 'react'
+import React, { Component,useState } from 'react'
 import '../styles/Section1.css';
 import face from '../assets/face.jpeg'
 
-class Section1 extends Component {
-    constructor(props) {
-        super(props)
+const Section1 = (props)=> {
+        const [state,setState]= useState(props.values)  
         
-        this.state=props.values;
-        
+        /*
         this.handleClickName=this.handleClickName.bind(this);
         this.handleClickTitle=this.handleClickTitle.bind(this);
-    }
+    */
 
     
-    handleClickName(){
-        console.log('this is:', this.name);
-        let response=prompt("name:",this.name);
+    const handleClickName=()=>{
+        console.log('this is:', state.name);
+        let response=prompt("name:",state.name);
         if((response==="")||response===null){
             return;
         }
         else{            
-            this.setState({
+            setState({
                 name:response,
-                telephone:this.state.telephone,  
-                contact:this.state.contact,
-                title:this.state.title, 
-                educations:this.state.educations,
-                education : this.state.education,                
-                experiences:this.state.experiences,
-                experience:this.state.experience,
+                telephone:state.telephone,  
+                contact:state.contact,
+                title:state.title, 
+                educations:state.educations,
+                education : state.education,                
+                experiences:state.experiences,
+                experience:state.experience,
               })
-              this.props.values.name=response;
+              props.values.name=response;
         }
     };
-    handleClickTitle(){
-        console.log('the ocuppation is:', this.state.title);
-        let response=prompt("title:",this.state.title)
+    const handleClickTitle=()=>{
+        console.log('the ocuppation is:', state.title);
+        let response=prompt("title:",state.title)
         if((response==="")||response===null){
             return;
         }
         else{
-            this.setState({
+            setState({
                 title:response,
             });
-            this.setState({
-                name:this.state.name,
-                telephone:this.state.telephone,  
-                contact:this.state.contact,
+            setState({
+                name:state.name,
+                telephone:state.telephone,  
+                contact:state.contact,
                 title:response, 
-                educations:this.state.educations,
-                education : this.state.education,                
-                experiences:this.state.experiences,
-                experience:this.state.experience,
+                educations:state.educations,
+                education : state.education,                
+                experiences:state.experiences,
+                experience:state.experience,
               })
-              this.props.values.title=response;
+              props.values.title=response;
         }
     };
 
-    render() {
+    
         return (
             <div className="Section1">
             <img src={face}   alt="Person Pic" ></img>
             <div className="TitleSection">
                 <div className="labelSection1">
-                    <div id="namePerson" onClick={this.handleClickName}>{this.state.name}</div>                
+                    <div id="namePerson" onClick={handleClickName.bind(this,'')}>{state.name}</div>                
                 </div>
-                <div onClick={this.handleClickTitle}>
+                <div onClick={handleClickTitle.bind(this,'')}>
                     <div id="titlePerson" className="dataSection1">                 
-                    {this.state.title} 
+                    {state.title} 
                     </div>
                 </div>
             </div>
             </div>
         )
-    }
+    
 }
 
 
